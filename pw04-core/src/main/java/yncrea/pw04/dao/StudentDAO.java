@@ -13,4 +13,5 @@ public interface StudentDAO extends JpaRepository<Student,Long> {
     @Query("SELECT DISTINCT s FROM Student s LEFT JOIN FETCH s.courses")
     List<Student> findAllWithCourses();
 
+
 }

@@ -18,6 +18,7 @@ public class StudentController {
     private StudentService studentService;
 
     public List<Student> studentsList;
+    public Long id;
 
     @RequestMapping("/list")
     public String getListOfStudents(ModelMap modelMap){
@@ -36,6 +37,13 @@ public class StudentController {
     @RequestMapping(value="/form",method = RequestMethod.POST)
     public String submitForm(@ModelAttribute("student") Student student){
     studentService.saveStudent(student);
+    return "redirect:list";
+    }
+
+    @RequestMapping(value="/delete" ,method = RequestMethod.POST)
+    public String delete(Student student){
+        
+        studentService.deleteStudent(student);
     return "redirect:list";
     }
 }

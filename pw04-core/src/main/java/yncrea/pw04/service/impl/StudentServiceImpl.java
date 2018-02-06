@@ -33,6 +33,11 @@ public class StudentServiceImpl implements StudentService {
         return studentDAO.findAllWithCourses();
     }
 
+    @Override
+    public void deleteStudent(Student student) {
+    studentDAO.delete(student);
+    }
+
 
     @Override
     public List<Student> findAll() {
