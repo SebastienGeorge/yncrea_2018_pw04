@@ -15,13 +15,13 @@ public class StudentController {
     @Inject
     private StudentService studentService;
 
-    public List<Student> studentList;
+    public List<Student> studentsList;
 
     @RequestMapping("/list")
-    public List<Student> getListOfStudents(ModelMap modelMap){
-        studentList=studentService.findAllWithCourses();
-        modelMap.put("students",studentList);
-        return studentList;
+    public String getListOfStudents(ModelMap modelMap){
+        studentsList=studentService.findAllWithCourses();
+        modelMap.put("students",studentsList);
+        return "studentsList";
 
     }
 }
